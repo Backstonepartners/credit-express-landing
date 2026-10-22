@@ -105,7 +105,17 @@ footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(
   .timer div{min-width:60px}
 }
 @media (prefers-reduced-motion:reduce){.dot{animation:none}.btn{transition:none}}
+.results{column-count:3;column-gap:14px}
+.results img{width:100%;max-width:100%;height:auto;display:block;margin:0 0 14px;break-inside:avoid;border-radius:12px;border:1px solid var(--line);background:#fff}
+.results-note{margin-top:14px;text-align:center;font-size:.8rem;color:var(--muted)}
+@media (max-width:720px){.results{column-count:2;column-gap:10px}.results img{margin-bottom:10px}}
 </style>
+<!-- Meta Pixel: Credit Express USA LLC Event Data -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1116895847917975');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1116895847917975&ev=PageView&noscript=1"></noscript>
 </head>
 <body>
 
@@ -195,6 +205,23 @@ footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(
 
   <section>
     <div class="wrap" style="padding-top:0">
+      <div class="center">
+        <p class="eyebrow">Resultados</p>
+        <h2>Puntajes de <span class="goldtext">clientes reales.</span></h2>
+      </div>
+      <div class="results">
+        <img src="resultado1.jpg" alt="Captura del puntaje de crédito de un cliente de Credit Express" loading="lazy">
+        <img src="resultado2.jpg" alt="Captura del puntaje de crédito de un cliente de Credit Express" loading="lazy">
+        <img src="resultado3.jpg" alt="Captura del puntaje de crédito de un cliente de Credit Express" loading="lazy">
+        <img src="resultado4.jpg" alt="Captura del puntaje de crédito de un cliente de Credit Express" loading="lazy">
+        <img src="resultado5.jpg" alt="Captura del puntaje de crédito de un cliente de Credit Express" loading="lazy">
+      </div>
+      <p class="results-note">Capturas compartidas por clientes, con sus datos personales ocultos. Cada caso es diferente y los resultados varían.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="padding-top:0">
       <div class="cert">
         <span class="ribbon">Bonos de este mes</span>
         <h3>Llévate <span class="goldtext">$944</span> en bonos</h3>
@@ -265,6 +292,14 @@ footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(
     b.addEventListener('click',function(){v.controls=true;c.classList.add('playing');v.play()});
     v.addEventListener('ended',function(){c.classList.remove('playing');v.controls=false;v.load()});
   });
+})();
+</script>
+<script>
+(function(){
+  if(!window.fbq)return;
+  var v=document.getElementById('vsl'),sent=false;
+  if(v)v.addEventListener('play',function(){if(!sent){sent=true;fbq('track','ViewContent',{content_name:'VSL'})}});
+  document.querySelectorAll('a[href="#agenda"]').forEach(function(a){a.addEventListener('click',function(){fbq('trackCustom','ClickAgendar')})});
 })();
 </script>
 </body>
