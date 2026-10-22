@@ -64,10 +64,14 @@ section .wrap{padding-block:56px}
 .story-text p:not(.eyebrow):not(.sign){color:var(--muted);max-width:60ch}
 .sign{font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--gold);display:grid;gap:2px}
 .sign span{font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted)}
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.quote{display:grid;gap:14px;align-content:space-between;padding:22px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
-.quote .thumb{aspect-ratio:9/12;max-width:100%;border-radius:10px;background:var(--bg);border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:.8rem;text-align:center;padding:10px}
-.quote cite{font-style:normal;font-weight:700;font-size:.95rem}
+.quotes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.quote{position:relative;margin:0;border-radius:14px;overflow:hidden;background:var(--surface);border:1px solid var(--line);aspect-ratio:9/16;max-width:100%}
+.quote video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.quote .tplay{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55));border:0;cursor:pointer;padding:0;color:inherit}
+.quote .tplay span{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--gold-hi),var(--gold-lo));display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.quote .tplay span::after{content:"";border-left:18px solid var(--on-gold);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.quote .tplay:focus-visible{outline:3px solid var(--gold-hi);outline-offset:-3px}
+.quote.playing .tplay{display:none}
 .cert{position:relative;max-width:640px;margin:0 auto;padding:34px 28px;border-radius:18px;background:linear-gradient(160deg,var(--surface-2),var(--surface));border:2px solid var(--gold);text-align:center;display:grid;gap:12px;justify-items:center;box-shadow:inset 0 0 0 6px var(--bg),inset 0 0 0 7px var(--gold-lo),0 30px 70px -35px rgba(212,175,55,.5)}
 .ribbon{background:linear-gradient(135deg,var(--gold-hi),var(--gold-lo));color:var(--on-gold);font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
 .cert h3{margin:0;font-family:var(--display);font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;line-height:1.1}
@@ -93,10 +97,11 @@ section .wrap{padding-block:56px}
 footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
 @media (max-width:720px){
   .proof .wrap{grid-template-columns:repeat(2,1fr)}
-  .steps,.quotes,.story{grid-template-columns:1fr}
+  .steps,.story{grid-template-columns:1fr}
+  .quotes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+  .quote{scroll-snap-align:start}
   .story{padding:20px}
   .portrait{aspect-ratio:16/11}
-  .quote .thumb{aspect-ratio:16/10}
   .timer div{min-width:60px}
 }
 @media (prefers-reduced-motion:reduce){.dot{animation:none}.btn{transition:none}}
@@ -179,9 +184,11 @@ footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(
         <h2>Resultados reales en <span class="goldtext">todos los burós.</span></h2>
       </div>
       <div class="quotes">
-        <div class="quote"><div class="thumb">Video o captura del testimonio 1</div><cite>Nombre del cliente · Miami</cite></div>
-        <div class="quote"><div class="thumb">Video o captura del testimonio 2</div><cite>Nombre del cliente · Hialeah</cite></div>
-        <div class="quote"><div class="thumb">Video o captura del testimonio 3</div><cite>Nombre del cliente · Kendall</cite></div>
+        <figure class="quote"><video src="testimonio1.mp4" poster="testimonio1.jpg" preload="none" playsinline></video><button class="tplay" type="button" aria-label="Reproducir testimonio 1"><span></span></button></figure>
+        <figure class="quote"><video src="testimonio2.mp4" poster="testimonio2.jpg" preload="none" playsinline></video><button class="tplay" type="button" aria-label="Reproducir testimonio 2"><span></span></button></figure>
+        <figure class="quote"><video src="testimonio3.mp4" poster="testimonio3.jpg" preload="none" playsinline></video><button class="tplay" type="button" aria-label="Reproducir testimonio 3"><span></span></button></figure>
+        <figure class="quote"><video src="testimonio4.mp4" poster="testimonio4.jpg" preload="none" playsinline></video><button class="tplay" type="button" aria-label="Reproducir testimonio 4"><span></span></button></figure>
+        <figure class="quote"><video src="testimonio5.mp4" poster="testimonio5.jpg" preload="none" playsinline></video><button class="tplay" type="button" aria-label="Reproducir testimonio 5"><span></span></button></figure>
       </div>
     </div>
   </section>
@@ -248,5 +255,17 @@ footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(
 })();
 </script>
 
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.quote'));
+  var all=[document.getElementById('vsl')].concat(cards.map(function(c){return c.querySelector('video')})).filter(Boolean);
+  all.forEach(function(v){v.addEventListener('play',function(){all.forEach(function(o){if(o!==v&&!o.paused)o.pause()})})});
+  cards.forEach(function(c){
+    var v=c.querySelector('video'),b=c.querySelector('.tplay');
+    b.addEventListener('click',function(){v.controls=true;c.classList.add('playing');v.play()});
+    v.addEventListener('ended',function(){c.classList.remove('playing');v.controls=false;v.load()});
+  });
+})();
+</script>
 </body>
 </html>
