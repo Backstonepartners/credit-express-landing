@@ -113,7 +113,7 @@ section .wrap{padding-block:56px}
 .opt:focus-visible{outline:3px solid var(--gold-hi);outline-offset:2px}
 .opt.sel{border-color:var(--gold);background:rgba(212,175,55,.1)}
 .opt.sel::before{background:var(--gold);border-color:var(--gold);box-shadow:inset 0 0 0 3px var(--bg)}
-.qnext,.qsubmit,.qchange{justify-self:stretch;border:0;cursor:pointer;font-family:inherit}
+.qnext,.qsubmit,.qwa{justify-self:stretch;border:0;cursor:pointer;font-family:inherit}
 .btn[disabled]{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .fgrid .full{grid-column:1/-1}
@@ -343,9 +343,9 @@ fbq('init','1116895847917975');fbq('track','PageView');
         </div>
 
         <div class="qstep" data-step="4" data-key="no">
-          <h3>Entendido, gracias por tu honestidad.</h3>
-          <p class="qhint">Los cupos de cada mes son para personas listas para empezar. Cuando estés listo, vuelve aquí y agenda tu análisis gratis.</p>
-          <button type="button" class="btn qchange">Cambiar mi respuesta</button>
+          <h3>Por ahora no calificas para nuestro programa.</h3>
+          <p class="qhint">Trabajamos con cupos limitados cada mes y solo con personas listas para empezar. Si quieres más información, escríbenos por WhatsApp.</p>
+          <a class="btn qwa" id="qwa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
         </div>
 
         <form class="qstep" data-step="5" id="qform" novalidate>
@@ -434,7 +434,8 @@ fbq('init','1116895847917975');fbq('track','PageView');
     var q={0:1,1:2,2:3,3:4,4:4,5:5,6:5}[n];
     bar.style.width=(n===6?100:q*20)+'%';
     count.textContent=n===6?'Agenda tu hora':(n===5?'Último paso':'Pregunta '+q+' de 5');
-    back.hidden=(n===0||n===6);
+    back.hidden=(n===0||n===4||n===6);
+    if(n===4){bar.style.width='100%';count.textContent='Resultado'}
     var f=steps[n].querySelector('.opt,input');
     if(started&&f){quiz.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){f.focus({preventScroll:true})},360)}
   }
@@ -454,12 +455,19 @@ fbq('init','1116895847917975');fbq('track','PageView');
         o.classList.add('sel');o.setAttribute('aria-pressed','true');
         data[key]=o.textContent.trim();
         var n=+s.dataset.step;
-        setTimeout(function(){show(n===3?(data.compromiso==='No por ahora'?4:5):n+1)},220);
+        var nx=n+1;
+        if(n===2&&data.cuando==='Solo estoy averiguando')nx=4;
+        if(n===3)nx=data.compromiso==='No por ahora'?4:5;
+        if(nx===4)fb('trackCustom','NoCalifica',{motivo:key});
+        setTimeout(function(){show(nx)},220);
       });
     });
     if(next)next.addEventListener('click',function(){show(+s.dataset.step+1)});
   });
-  quiz.querySelector('.qchange').addEventListener('click',function(){show(3)});
+  var WA='';/* número WhatsApp, solo dígitos con código país, ej. 13055551234 */
+  var wa=document.getElementById('qwa');
+  wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, quiero más información sobre el programa de crédito de Credit Express.');
+  wa.addEventListener('click',function(){fb('trackCustom','ClickWhatsApp')});
 
   function phone(v){var d=v.replace(/\D/g,'');if(d.length===10)return '+1'+d;if(d.length===11&&d[0]==='1')return '+'+d;return v.trim().charAt(0)==='+'&&d.length>10?'+'+d:''}
   var form=document.getElementById('qform'),err=document.getElementById('qerr');
