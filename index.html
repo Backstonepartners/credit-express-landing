@@ -481,7 +481,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
     if(bad.length){err.textContent={first_name:'Escribe tu nombre.',last_name:'Escribe tu apellido.',phone:'Revisa tu número de teléfono (10 dígitos).',email:'Revisa tu email.'}[bad[0]];f[bad[0]].focus();return}
     if(!f.sms_consent.checked){err.textContent='Marca la casilla para poder enviarte la confirmación de tu cita.';return}
     var btn=form.querySelector('.qsubmit');btn.disabled=true;btn.textContent='Un momento…';
-    var payload={first_name:f.first_name.value.trim(),last_name:f.last_name.value.trim(),phone:p,email:em,para_que:data.para_que||'',que_tiene:data.que_tiene||'',cuando:data.cuando||'',compromiso:data.compromiso||'',sms_consent:'Sí',source:'landing-quiz',page:location.href,fbp:ck('_fbp'),fbc:fbc(),user_agent:navigator.userAgent,utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content')};
+    var payload={first_name:f.first_name.value.trim(),last_name:f.last_name.value.trim(),phone:p,email:em,para_que:data.para_que||'',que_tiene:data.que_tiene||'',cuando:data.cuando||'',compromiso:data.compromiso||'',sms_consent:'Sí',source:'landing-quiz',page:location.href,fbp:ck('_fbp'),fbc:fbc(),fbclid:qp('fbclid')||(ck('_fbc').split('.')[3]||''),user_agent:navigator.userAgent,utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content')};
     var done=false;function go(){if(done)return;done=true;openCal(payload)}
     try{fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).then(go,go)}catch(x){go()}
     setTimeout(go,2500);
