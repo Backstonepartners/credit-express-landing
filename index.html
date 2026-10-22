@@ -92,8 +92,43 @@ section .wrap{padding-block:56px}
 .timer div{min-width:68px;padding:10px 8px;border-radius:12px;background:var(--bg);border:1px solid var(--gold-lo);text-align:center}
 .timer b{display:block;font-family:var(--display);font-size:1.6rem;color:var(--gold-hi);font-variant-numeric:tabular-nums;line-height:1}
 .timer span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.booking{background:#fff;border-radius:16px;padding:8px;min-height:640px;border:1px solid var(--gold-lo)}
-.booking iframe{display:block;min-height:620px}
+.quiz{max-width:640px;margin:0 auto;padding:26px;border-radius:20px;background:linear-gradient(160deg,var(--surface-2),var(--surface));border:1px solid var(--gold-lo);box-shadow:0 30px 70px -35px rgba(212,175,55,.45)}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:28px}
+.qcount{margin-left:auto;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.qback{background:none;border:0;color:var(--muted);font:inherit;font-size:.92rem;cursor:pointer;padding:4px 0}
+.qback:hover{color:var(--ink)}
+.qbar{height:6px;border-radius:99px;background:var(--line);margin:12px 0 26px;overflow:hidden}
+.qbar i{display:block;height:100%;width:20%;background:linear-gradient(90deg,var(--gold-lo),var(--gold-hi));border-radius:inherit;transition:width .35s ease}
+.qstep{display:none}
+.qstep.active{display:grid;gap:14px;animation:qin .35s ease both}
+@keyframes qin{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.qstep h3{margin:0;font-family:var(--display);font-size:clamp(1.35rem,4vw,1.75rem);line-height:1.15;font-weight:800;text-wrap:balance}
+.qhint{color:var(--muted);font-size:.98rem}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;font-size:1.02rem;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:15px 16px;cursor:pointer;transition:border-color .15s,background .15s,transform .1s}
+.opt::before{content:"";flex:0 0 20px;height:20px;border-radius:50%;border:2px solid var(--gold-lo);transition:background .15s,border-color .15s}
+[data-multi] .opt::before{border-radius:6px}
+.opt:hover{border-color:var(--gold)}
+.opt:active{transform:scale(.99)}
+.opt:focus-visible{outline:3px solid var(--gold-hi);outline-offset:2px}
+.opt.sel{border-color:var(--gold);background:rgba(212,175,55,.1)}
+.opt.sel::before{background:var(--gold);border-color:var(--gold);box-shadow:inset 0 0 0 3px var(--bg)}
+.qnext,.qsubmit,.qchange{justify-self:stretch;border:0;cursor:pointer;font-family:inherit}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fgrid .full{grid-column:1/-1}
+.fgrid label{display:grid;gap:6px;font-size:.88rem;font-weight:600;color:var(--muted)}
+.fgrid input{font:inherit;font-size:1.02rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;width:100%}
+.fgrid input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.2)}
+.fgrid input.bad{border-color:#E5826B}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;line-height:1.45;color:var(--muted);cursor:pointer}
+.consent input{flex:0 0 18px;width:18px;height:18px;margin-top:1px;accent-color:var(--gold)}
+.qerr{color:#E5826B;font-size:.9rem;min-height:0}
+.qerr:empty{display:none}
+.booking{background:#fff;border-radius:14px;padding:6px;min-height:600px;border:1px solid var(--gold-lo)}
+.booking iframe{display:block;width:100%;min-height:600px;border:0}
+@media (max-width:720px){.quiz{padding:20px 16px}.fgrid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.qstep.active{animation:none}.qbar i{transition:none}}
 .form-slot{min-height:540px;border:2px dashed var(--gold-lo);border-radius:16px;display:grid;place-items:center;text-align:center;color:var(--muted);padding:24px;background:rgba(212,175,55,.04)}
 .form-slot strong{display:block;color:var(--gold);font-family:var(--display);font-size:1.3rem;margin-bottom:6px}
 footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
@@ -244,7 +279,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
       <div class="center">
         <p class="eyebrow">Cupos limitados</p>
         <h2>Agenda tu análisis <span class="goldtext">gratis</span></h2>
-        <p>Llena el formulario y escoge la hora de tu llamada para ver si calificas. Los bonos de este mes terminan en:</p>
+        <p>Responde 4 preguntas rápidas y escoge la hora de tu llamada para ver si calificas. Los bonos de este mes terminan en:</p>
         <div class="timer" aria-live="polite">
           <div><b id="t-d">--</b><span>Días</span></div>
           <div><b id="t-h">--</b><span>Horas</span></div>
@@ -252,9 +287,86 @@ fbq('init','1116895847917975');fbq('track','PageView');
           <div><b id="t-s">--</b><span>Seg</span></div>
         </div>
       </div>
-      <div class="booking">
-        <iframe src="https://api.leadconnectorhq.com/widget/booking/S6nfWtkto1r1Slsujyk1" allow="payment" style="width:100%;border:none;overflow:hidden;" scrolling="no" id="S6nfWtkto1r1Slsujyk1_1792697314436" title="Agenda tu análisis gratis"></iframe>
-        <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+      <div class="quiz" id="quiz">
+        <div class="qhead">
+          <button type="button" class="qback" id="qback" aria-label="Pregunta anterior" hidden>&#8592; Atrás</button>
+          <span class="qcount" id="qcount">Pregunta 1 de 5</span>
+        </div>
+        <div class="qbar" aria-hidden="true"><i id="qbar"></i></div>
+
+        <div class="qstep active" data-step="0" data-key="para_que">
+          <h3>¿Para qué quieres arreglar tu crédito?</h3>
+          <div class="opts" role="radiogroup">
+            <button type="button" class="opt">Comprar casa</button>
+            <button type="button" class="opt">Sacar tarjetas de crédito</button>
+            <button type="button" class="opt">Comprar carro</button>
+            <button type="button" class="opt">Conseguir un préstamo</button>
+            <button type="button" class="opt">Abrir o crecer mi negocio</button>
+            <button type="button" class="opt">Salir de deudas</button>
+            <button type="button" class="opt">Otro</button>
+          </div>
+        </div>
+
+        <div class="qstep" data-step="1" data-key="que_tiene" data-multi>
+          <h3>¿Qué tienes en tu reporte de crédito?</h3>
+          <p class="qhint">Marca todas las que apliquen.</p>
+          <div class="opts" role="group">
+            <button type="button" class="opt">Bancarrota</button>
+            <button type="button" class="opt">Colecciones o muchas deudas</button>
+            <button type="button" class="opt">Muchos inquiries (consultas de crédito)</button>
+            <button type="button" class="opt">Pagos atrasados</button>
+            <button type="button" class="opt">Repossession (me quitaron el carro)</button>
+            <button type="button" class="opt">Préstamos estudiantiles</button>
+            <button type="button" class="opt">No tengo historial de crédito</button>
+            <button type="button" class="opt">No sé, quiero que lo revisen</button>
+          </div>
+          <button type="button" class="btn qnext" disabled>Siguiente</button>
+        </div>
+
+        <div class="qstep" data-step="2" data-key="cuando">
+          <h3>¿Cuándo quieres empezar a trabajar tu crédito?</h3>
+          <div class="opts" role="radiogroup">
+            <button type="button" class="opt">Ya mismo</button>
+            <button type="button" class="opt">En los próximos 30 días</button>
+            <button type="button" class="opt">En 1 a 3 meses</button>
+            <button type="button" class="opt">Solo estoy averiguando</button>
+          </div>
+        </div>
+
+        <div class="qstep" data-step="3" data-key="compromiso">
+          <h3>Trabajamos solo con personas comprometidas.</h3>
+          <p class="qhint">¿Te comprometes a conectarte a la llamada de 15 minutos y escuchar la propuesta?</p>
+          <div class="opts" role="radiogroup">
+            <button type="button" class="opt">Sí, me comprometo a conectarme y escuchar la propuesta</button>
+            <button type="button" class="opt">No por ahora</button>
+          </div>
+        </div>
+
+        <div class="qstep" data-step="4" data-key="no">
+          <h3>Entendido, gracias por tu honestidad.</h3>
+          <p class="qhint">Los cupos de cada mes son para personas listas para empezar. Cuando estés listo, vuelve aquí y agenda tu análisis gratis.</p>
+          <button type="button" class="btn qchange">Cambiar mi respuesta</button>
+        </div>
+
+        <form class="qstep" data-step="5" id="qform" novalidate>
+          <h3>Último paso: ¿a dónde te contactamos?</h3>
+          <p class="qhint">Te enviamos la confirmación de tu cita por texto y email.</p>
+          <div class="fgrid">
+            <label>Nombre<input name="first_name" autocomplete="given-name" required></label>
+            <label>Apellido<input name="last_name" autocomplete="family-name" required></label>
+            <label class="full">Teléfono<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(305) 555-1234" required></label>
+            <label class="full">Email<input name="email" type="email" autocomplete="email" placeholder="tu@email.com" required></label>
+          </div>
+          <label class="consent"><input type="checkbox" name="sms_consent" required> <span>Acepto recibir mensajes de texto, llamadas y correos de Credit Express USA LLC sobre mi solicitud y mi cita. La frecuencia varía. Pueden aplicar tarifas de mensajes y datos. Responde STOP para cancelar o HELP para ayuda.</span></label>
+          <p class="qerr" id="qerr" role="alert"></p>
+          <button type="submit" class="btn qsubmit">Ver horarios disponibles</button>
+        </form>
+
+        <div class="qstep" data-step="6">
+          <h3 id="qhello">¡Listo! Escoge el día y la hora de tu llamada</h3>
+          <p class="qhint">Toma menos de 30 segundos. Tus datos ya están llenos.</p>
+          <div class="booking" id="booking"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -303,6 +415,77 @@ fbq('init','1116895847917975');fbq('track','PageView');
   var v=document.getElementById('vsl'),sent=false;
   if(v)v.addEventListener('play',function(){if(!sent){sent=true;fbq('track','ViewContent',{content_name:'VSL'})}});
   document.querySelectorAll('a[href="#agenda"]').forEach(function(a){a.addEventListener('click',function(){fbq('trackCustom','ClickAgendar')})});
+})();
+</script>
+<script>
+/* Quiz: one question per screen. Answers go to GHL (workflow "CE 0 - Formulario landing"), then the calendar opens prefilled. */
+(function(){
+  var HOOK='https://services.leadconnectorhq.com/hooks/pxRRmy6XQVrZAWSk5CEO/webhook-trigger/87473e1d-ebd3-4f32-8f5c-e03b86e8d50d';
+  var CAL='https://api.leadconnectorhq.com/widget/booking/S6nfWtkto1r1Slsujyk1';
+  var quiz=document.getElementById('quiz'); if(!quiz)return;
+  var steps=[].slice.call(quiz.querySelectorAll('.qstep'));
+  var bar=document.getElementById('qbar'),count=document.getElementById('qcount'),back=document.getElementById('qback');
+  var data={},hist=[],cur=0,started=false;
+  function fb(){if(window.fbq)fbq.apply(null,arguments)}
+  function show(n,push){
+    if(push!==false)hist.push(cur);
+    cur=n;
+    steps.forEach(function(s){s.classList.toggle('active',+s.dataset.step===n)});
+    var q={0:1,1:2,2:3,3:4,4:4,5:5,6:5}[n];
+    bar.style.width=(n===6?100:q*20)+'%';
+    count.textContent=n===6?'Agenda tu hora':(n===5?'Último paso':'Pregunta '+q+' de 5');
+    back.hidden=(n===0||n===6);
+    var f=steps[n].querySelector('.opt,input');
+    if(started&&f){quiz.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){f.focus({preventScroll:true})},360)}
+  }
+  back.addEventListener('click',function(){if(hist.length)show(hist.pop(),false)});
+  steps.forEach(function(s){
+    var key=s.dataset.key,multi=s.hasAttribute('data-multi'),next=s.querySelector('.qnext');
+    s.querySelectorAll('.opt').forEach(function(o){
+      o.setAttribute('aria-pressed','false');
+      o.addEventListener('click',function(){
+        if(!started){started=true;fb('trackCustom','QuizStart')}
+        if(multi){
+          o.classList.toggle('sel');o.setAttribute('aria-pressed',o.classList.contains('sel'));
+          var v=[].slice.call(s.querySelectorAll('.opt.sel')).map(function(x){return x.textContent.trim()});
+          data[key]=v.join(', ');next.disabled=!v.length;return;
+        }
+        s.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');x.setAttribute('aria-pressed','false')});
+        o.classList.add('sel');o.setAttribute('aria-pressed','true');
+        data[key]=o.textContent.trim();
+        var n=+s.dataset.step;
+        setTimeout(function(){show(n===3?(data.compromiso==='No por ahora'?4:5):n+1)},220);
+      });
+    });
+    if(next)next.addEventListener('click',function(){show(+s.dataset.step+1)});
+  });
+  quiz.querySelector('.qchange').addEventListener('click',function(){show(3)});
+
+  function phone(v){var d=v.replace(/\D/g,'');if(d.length===10)return '+1'+d;if(d.length===11&&d[0]==='1')return '+'+d;return v.trim().charAt(0)==='+'&&d.length>10?'+'+d:''}
+  var form=document.getElementById('qform'),err=document.getElementById('qerr');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();err.textContent='';
+    var f=form.elements,bad=[];
+    var p=phone(f.phone.value),em=f.email.value.trim();
+    [['first_name',f.first_name.value.trim()],['last_name',f.last_name.value.trim()],['phone',p],['email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)?em:'']].forEach(function(x){f[x[0]].classList.toggle('bad',!x[1]);if(!x[1])bad.push(x[0])});
+    if(bad.length){err.textContent={first_name:'Escribe tu nombre.',last_name:'Escribe tu apellido.',phone:'Revisa tu número de teléfono (10 dígitos).',email:'Revisa tu email.'}[bad[0]];f[bad[0]].focus();return}
+    if(!f.sms_consent.checked){err.textContent='Marca la casilla para poder enviarte la confirmación de tu cita.';return}
+    var btn=form.querySelector('.qsubmit');btn.disabled=true;btn.textContent='Un momento…';
+    var payload={first_name:f.first_name.value.trim(),last_name:f.last_name.value.trim(),phone:p,email:em,para_que:data.para_que||'',que_tiene:data.que_tiene||'',cuando:data.cuando||'',compromiso:data.compromiso||'',sms_consent:'Sí',source:'landing-quiz',page:location.href};
+    var done=false;function go(){if(done)return;done=true;openCal(payload)}
+    try{fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).then(go,go)}catch(x){go()}
+    setTimeout(go,2500);
+    fb('track','Lead',{content_name:'Quiz landing'});
+  });
+  function openCal(p){
+    document.getElementById('qhello').textContent='¡Listo, '+p.first_name+'! Escoge el día y la hora de tu llamada';
+    var q='?first_name='+encodeURIComponent(p.first_name)+'&last_name='+encodeURIComponent(p.last_name)+'&email='+encodeURIComponent(p.email)+'&phone='+encodeURIComponent(p.phone);
+    var box=document.getElementById('booking');
+    box.innerHTML='<iframe src="'+CAL+q+'" id="S6nfWtkto1r1Slsujyk1_1792697314436" scrolling="no" title="Agenda tu análisis gratis" style="width:100%;border:none;overflow:hidden"></iframe>';
+    var s=document.createElement('script');s.src='https://link.msgsndr.com/js/form_embed.js';document.body.appendChild(s);
+    show(6);
+  }
+  show(0,false);
 })();
 </script>
 </body>
