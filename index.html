@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Programa Crédito Nuevo 45 de Credit Express: disputas personalizadas en todos los burós y avances cada semana. Agenda tu análisis gratis.">
+<title>Credit Express Landing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one narrow column. Video first, proof strip, 3 steps, testimonials, gold bonus certificate, booking form with countdown. Black + gold, single dark look by design. */
+:root{
+  --bg:#0A0A0A; --surface:#151412; --surface-2:#1C1A16; --ink:#F6F1E6; --muted:#A8A192; --line:#2E2A22;
+  --gold:#D4AF37; --gold-hi:#F3D77A; --gold-lo:#A8842A; --on-gold:#111111;
+  --display:"Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2{font-family:var(--display);line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,6vw,3.6rem);font-weight:800}
+h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800}
+p{margin:0}
+.goldtext{background:linear-gradient(100deg,var(--gold-lo),var(--gold-hi) 45%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.bar{background:linear-gradient(90deg,var(--gold-lo),var(--gold) 50%,var(--gold-lo));color:var(--on-gold)}
+.bar .wrap{display:flex;justify-content:center;align-items:center;gap:8px 14px;padding-block:9px;flex-wrap:wrap;font-size:.88rem;font-weight:700;text-align:center}
+.bar .cd{font-variant-numeric:tabular-nums;background:var(--on-gold);color:var(--gold-hi);padding:2px 9px;border-radius:6px}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.logo{font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:-.01em}
+.spots{font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:8px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,175,55,.6)}70%{box-shadow:0 0 0 10px rgba(212,175,55,0)}100%{box-shadow:0 0 0 0 rgba(212,175,55,0)}}
+.hero{background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(212,175,55,.16),transparent 70%)}
+.hero .wrap{padding-block:44px 30px;display:grid;gap:22px;text-align:center;justify-items:center}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.sub{color:var(--muted);font-size:1.12rem;max-width:58ch}
+.video{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;background:var(--surface);border:1px solid var(--gold-lo);border-radius:18px;display:grid;place-items:center;box-shadow:0 30px 70px -30px rgba(212,175,55,.45)}
+.play{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--gold-hi),var(--gold-lo));display:grid;place-items:center}
+.play::after{content:"";border-left:24px solid var(--on-gold);border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:6px}
+.video video{width:100%;height:100%;object-fit:cover;border-radius:17px;background:#000;display:block}
+.video small{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:var(--muted);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.stamp{position:absolute;top:-16px;right:-6px;transform:rotate(8deg);border:3px solid var(--gold);color:var(--gold);background:var(--bg);font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:.14em;padding:6px 12px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold-hi),var(--gold) 50%,var(--gold-lo));color:var(--on-gold);font-weight:800;font-size:1.08rem;text-decoration:none;padding:17px 32px;border-radius:999px;transition:transform .15s ease,box-shadow .15s ease;box-shadow:0 10px 30px -10px rgba(212,175,55,.6)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(212,175,55,.75)}
+.btn:focus-visible{outline:3px solid var(--gold-hi);outline-offset:3px}
+.note{font-size:.85rem;color:var(--muted)}
+.proof{border-block:1px solid var(--line);background:var(--surface)}
+.proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:20px;text-align:center}
+.proof b{display:block;font-family:var(--display);font-size:1.5rem;font-variant-numeric:tabular-nums;color:var(--gold)}
+.proof span{font-size:.85rem;color:var(--muted)}
+section .wrap{padding-block:56px}
+.center{text-align:center;display:grid;gap:10px;justify-items:center;margin-bottom:32px}
+.center p{color:var(--muted);max-width:56ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{display:grid;gap:8px;align-content:start;padding:22px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.step .n{font-family:var(--display);font-weight:800;color:var(--gold);font-size:.95rem}
+.step h3{margin:0;font-size:1.15rem}
+.step p{color:var(--muted);font-size:.97rem}
+.story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;align-items:center;padding:28px;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.portrait{aspect-ratio:4/5;max-width:100%;border-radius:14px;border:1px dashed var(--gold-lo);background:var(--bg);display:grid;place-items:center;color:var(--muted);font-size:.85rem;text-align:center;padding:12px}
+.story-text{display:grid;gap:14px;min-width:0}
+.story-text p:not(.eyebrow):not(.sign){color:var(--muted);max-width:60ch}
+.sign{font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--gold);display:grid;gap:2px}
+.sign span{font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--muted)}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.quote{display:grid;gap:14px;align-content:space-between;padding:22px;border-radius:14px;background:var(--surface);border:1px solid var(--line)}
+.quote .thumb{aspect-ratio:9/12;max-width:100%;border-radius:10px;background:var(--bg);border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:.8rem;text-align:center;padding:10px}
+.quote cite{font-style:normal;font-weight:700;font-size:.95rem}
+.cert{position:relative;max-width:640px;margin:0 auto;padding:34px 28px;border-radius:18px;background:linear-gradient(160deg,var(--surface-2),var(--surface));border:2px solid var(--gold);text-align:center;display:grid;gap:12px;justify-items:center;box-shadow:inset 0 0 0 6px var(--bg),inset 0 0 0 7px var(--gold-lo),0 30px 70px -35px rgba(212,175,55,.5)}
+.ribbon{background:linear-gradient(135deg,var(--gold-hi),var(--gold-lo));color:var(--on-gold);font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+.cert h3{margin:0;font-family:var(--display);font-size:clamp(1.6rem,4.5vw,2.2rem);font-weight:800;line-height:1.1}
+.value{font-size:1rem;color:var(--muted)}
+.value s{color:var(--muted)}
+.value b{color:var(--gold-hi);font-size:1.3rem;font-family:var(--display)}
+.cert ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:8px;text-align:left}
+.cert li{display:flex;gap:10px;align-items:flex-start;color:var(--ink)}
+.cert li::before{content:"";flex:0 0 18px;height:18px;margin-top:3px;border-radius:50%;background:var(--gold);-webkit-mask:radial-gradient(circle,#000 40%,transparent 42%);mask:radial-gradient(circle,#000 40%,transparent 42%)}
+.cert ul.stack{width:100%;gap:0;border-top:1px solid var(--line)}
+.cert ul.stack li{justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem;color:var(--muted)}
+.cert ul.stack li::before{display:none}
+.cert ul.stack b{color:var(--ink);font-size:1.02rem}
+.cert ul.stack em{font-style:normal;font-family:var(--display);font-weight:800;color:var(--gold);font-size:1.15rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cert .fine{font-size:.82rem;color:var(--muted)}
+.book{background:linear-gradient(180deg,var(--bg),var(--surface))}
+.timer{display:flex;gap:10px;justify-content:center;margin-top:6px}
+.timer div{min-width:68px;padding:10px 8px;border-radius:12px;background:var(--bg);border:1px solid var(--gold-lo);text-align:center}
+.timer b{display:block;font-family:var(--display);font-size:1.6rem;color:var(--gold-hi);font-variant-numeric:tabular-nums;line-height:1}
+.timer span{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.form-slot{min-height:540px;border:2px dashed var(--gold-lo);border-radius:16px;display:grid;place-items:center;text-align:center;color:var(--muted);padding:24px;background:rgba(212,175,55,.04)}
+.form-slot strong{display:block;color:var(--gold);font-family:var(--display);font-size:1.3rem;margin-bottom:6px}
+footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
+@media (max-width:720px){
+  .proof .wrap{grid-template-columns:repeat(2,1fr)}
+  .steps,.quotes,.story{grid-template-columns:1fr}
+  .story{padding:20px}
+  .portrait{aspect-ratio:16/11}
+  .quote .thumb{aspect-ratio:16/10}
+  .timer div{min-width:60px}
+}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+
+<div class="bar">
+  <div class="wrap">
+    <span>$944 en bonos gratis solo para quien agende este mes</span>
+    <span>Termina en <span class="cd" id="cd-bar">--</span></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo">Credit <span class="goldtext">Express</span></div>
+    <div class="spots"><i class="dot" aria-hidden="true"></i>Solo 30 cupos por mes</div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Programa Crédito Nuevo 45</p>
+      <h1>Tu crédito trabajado en <span class="goldtext">todos los burós</span> en solo 45 días.</h1>
+      <p class="sub">Disputas personalizadas, avances cada semana y $944 en bonos si agendas este mes. Mira el video y agenda tu análisis gratis.</p>
+      <div class="video">
+        <span class="stamp">APROBADO</span>
+                <video id="vsl" controls playsinline preload="metadata" poster="vsl_portada.jpg" src="vsl.mp4">Tu navegador no puede reproducir este video.</video>
+      </div>
+      <a class="btn" href="#agenda">Ver si califico</a>
+      <p class="note">Análisis gratis · Toma 10 minutos · En español</p>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="wrap">
+      <div><b>+200</b><span>clientes en Miami</span></div>
+      <div><b>45 días</b><span>de proceso</span></div>
+      <div><b>Todos</b><span>los burós trabajados</span></div>
+      <div><b>Cada 7 días</b><span>avance por WhatsApp</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>Tres pasos. Tú ves cada uno.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">Paso 1</span><h3>Análisis gratis</h3><p>Revisamos tu reporte y te decimos con honestidad qué se puede trabajar.</p></div>
+        <div class="step"><span class="n">Paso 2</span><h3>Disputas personalizadas</h3><p>Sin cartas genéricas. Cada disputa según los errores de tu reporte.</p></div>
+        <div class="step"><span class="n">Paso 3</span><h3>Te mantenemos al día</h3><p>Seguimiento con los burós y avances por WhatsApp durante todo el proceso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="padding-top:0">
+      <div class="story">
+        <div class="portrait">Foto de Erick Díaz</div>
+        <div class="story-text">
+          <p class="eyebrow">Nuestra historia</p>
+          <h2>A nosotros también <span class="goldtext">nos estafaron.</span></h2>
+          <p>Hace unos años mi esposa y yo le pagamos a una compañía para que nos arreglara el crédito. Pagamos, esperamos, y no hicieron nada. No contestaban el teléfono.</p>
+          <p>Así que aprendí a hacerlo yo mismo. Arreglé nuestro crédito, y desde entonces ya ayudé a más de 200 personas en Miami. Por eso en Credit Express cada caso lo trabajo personalmente y siempre sabes qué estamos haciendo.</p>
+          <p class="sign">Erick Díaz<span>Fundador de Credit Express</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="padding-top:0">
+      <div class="center">
+        <p class="eyebrow">Clientes reales</p>
+        <h2>Resultados reales en <span class="goldtext">todos los burós.</span></h2>
+      </div>
+      <div class="quotes">
+        <div class="quote"><div class="thumb">Video o captura del testimonio 1</div><cite>Nombre del cliente · Miami</cite></div>
+        <div class="quote"><div class="thumb">Video o captura del testimonio 2</div><cite>Nombre del cliente · Hialeah</cite></div>
+        <div class="quote"><div class="thumb">Video o captura del testimonio 3</div><cite>Nombre del cliente · Kendall</cite></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="padding-top:0">
+      <div class="cert">
+        <span class="ribbon">Bonos de este mes</span>
+        <h3>Llévate <span class="goldtext">$944</span> en bonos</h3>
+        <ul class="stack">
+          <li><span><b>Plan Primera Casa</b><br>Los pasos para prepararte para un mortgage</span><em>$297</em></li>
+          <li><span><b>Red de Aprobación</b><br>Conexión directa con lenders de casa, auto y negocio</span><em>$497</em></li>
+          <li><span><b>Revisión para tu pareja o familiar</b><br>Analizamos su crédito sin costo</span><em>$150</em></li>
+        </ul>
+        <p class="value">Valor total <s>$944</s> · <b>GRATIS</b> si agendas antes de fin de mes</p>
+        <p class="fine">Solo para los 30 cupos de este mes.</p>
+        <a class="btn" href="#agenda">Quiero mis bonos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="agenda">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Cupos limitados</p>
+        <h2>Agenda tu análisis <span class="goldtext">gratis</span></h2>
+        <p>Llena el formulario y escoge la hora de tu llamada para ver si calificas. Los bonos de este mes terminan en:</p>
+        <div class="timer" aria-live="polite">
+          <div><b id="t-d">--</b><span>Días</span></div>
+          <div><b id="t-h">--</b><span>Horas</span></div>
+          <div><b id="t-m">--</b><span>Min</span></div>
+          <div><b id="t-s">--</b><span>Seg</span></div>
+        </div>
+      </div>
+      <div class="form-slot">
+        <div><strong>Formulario + calendario de GHL</strong>Pega aquí el embed del formulario de GoHighLevel</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Credit Express USA LLC · Miami, Florida</p>
+    <p>Los resultados varían según cada caso. Credit Express no garantiza un aumento específico de puntaje ni la eliminación de información correcta y verificable. Tienes derecho a cancelar tu contrato dentro de los 3 días hábiles siguientes a la firma.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var now=new Date();
+    var end=new Date(now.getFullYear(),now.getMonth()+1,1,0,0,0);
+    var ms=Math.max(0,end-now);
+    var d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);
+    document.getElementById('t-d').textContent=d;
+    document.getElementById('t-h').textContent=pad(h);
+    document.getElementById('t-m').textContent=pad(m);
+    document.getElementById('t-s').textContent=pad(s);
+    document.getElementById('cd-bar').textContent=d+'d '+pad(h)+'h '+pad(m)+'m';
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+
+</body>
+</html>
