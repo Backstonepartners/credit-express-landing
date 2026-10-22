@@ -458,7 +458,6 @@ fbq('init','1116895847917975');fbq('track','PageView');
         var nx=n+1;
         if(n===2&&data.cuando==='Solo estoy averiguando')nx=4;
         if(n===3)nx=data.compromiso==='No por ahora'?4:5;
-        if(nx===4)fb('trackCustom','NoCalifica',{motivo:key});
         setTimeout(function(){show(nx)},220);
       });
     });
@@ -467,7 +466,6 @@ fbq('init','1116895847917975');fbq('track','PageView');
   var WA='19544662006';/* número WhatsApp, solo dígitos con código país, ej. 13055551234 */
   var wa=document.getElementById('qwa');
   wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, quiero más información sobre el programa de crédito de Credit Express.');
-  wa.addEventListener('click',function(){fb('trackCustom','ClickWhatsApp')});
 
   function phone(v){var d=v.replace(/\D/g,'');if(d.length===10)return '+1'+d;if(d.length===11&&d[0]==='1')return '+'+d;return v.trim().charAt(0)==='+'&&d.length>10?'+'+d:''}
   var form=document.getElementById('qform'),err=document.getElementById('qerr');
