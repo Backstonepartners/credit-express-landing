@@ -59,7 +59,8 @@ section .wrap{padding-block:56px}
 .step h3{margin:0;font-size:1.15rem}
 .step p{color:var(--muted);font-size:.97rem}
 .story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;align-items:center;padding:28px;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
-.portrait{aspect-ratio:4/5;max-width:100%;border-radius:14px;border:1px dashed var(--gold-lo);background:var(--bg);display:grid;place-items:center;color:var(--muted);font-size:.85rem;text-align:center;padding:12px}
+.portrait{aspect-ratio:4/5;max-width:100%;margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--gold-lo);background:var(--bg)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;display:block}
 .story-text{display:grid;gap:14px;min-width:0}
 .story-text p:not(.eyebrow):not(.sign){color:var(--muted);max-width:60ch}
 .sign{font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--gold);display:grid;gap:2px}
@@ -138,7 +139,7 @@ footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.78rem;color:var(
   .quotes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
   .quote{scroll-snap-align:start}
   .story{padding:20px}
-  .portrait{aspect-ratio:16/11}
+  .portrait{aspect-ratio:4/5}
   .timer div{min-width:60px}
 }
 @media (prefers-reduced-motion:reduce){.dot{animation:none}.btn{transition:none}}
@@ -212,7 +213,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
   <section>
     <div class="wrap" style="padding-top:0">
       <div class="story">
-        <div class="portrait">Foto de Erick Díaz</div>
+        <figure class="portrait"><img src="erick.jpg" alt="Erick Díaz con su familia" width="768" height="1024" loading="lazy"></figure>
         <div class="story-text">
           <p class="eyebrow">Nuestra historia</p>
           <h2>A nosotros también <span class="goldtext">nos estafaron.</span></h2>
