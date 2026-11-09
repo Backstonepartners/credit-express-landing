@@ -514,7 +514,8 @@ fbq('init','1116895847917975');fbq('track','PageView');
     var done=false;function go(){if(done)return;done=true;openCal(payload)}
     try{fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).then(go,go)}catch(x){go()}
     setTimeout(go,2500);
-    fb('track','Lead',{content_name:'Quiz landing'});
+    /* No es Lead: el Lead real lo manda GHL por CAPI cuando la persona agenda la llamada (CE 2). */
+    fb('trackCustom','QuizCompleto',{content_name:'Quiz landing'});
   });
   function openCal(p){
     document.getElementById('qhello').textContent='¡Listo, '+p.first_name+'! Escoge el día y la hora de tu llamada';
