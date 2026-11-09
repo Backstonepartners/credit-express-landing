@@ -311,10 +311,10 @@ fbq('init','1116895847917975');fbq('track','PageView');
         <div class="qlock" id="qlock">
           <div class="qlock-in">
             <div class="qlock-ico" aria-hidden="true">&#9654;</div>
-            <h3>Mira al menos 1 minuto del video para aplicar</h3>
+            <h3>Mira al menos 30 segundos del video para aplicar</h3>
             <p>Ahí te explicamos cómo funciona el proceso. Así llegas a la llamada sabiendo lo que hacemos.</p>
             <div class="qlock-bar" aria-hidden="true"><i id="qlockbar"></i></div>
-            <span class="qlock-t" id="qlockt">Te faltan 60 segundos</span>
+            <span class="qlock-t" id="qlockt">Te faltan 30 segundos</span>
             <button type="button" class="btn" id="qlockgo">Ver el video</button>
           </div>
         </div>
@@ -526,8 +526,8 @@ fbq('init','1116895847917975');fbq('track','PageView');
     show(6);
   }
   show(0,false);
-  /* Gate: quiz unlocks after 60s of real VSL playback (seeking does not count). */
-  var NEED=60,watched=0,last=null,vsl=document.getElementById('vsl'),lockEl=document.getElementById('qlock');
+  /* Gate: quiz unlocks after 30s of real VSL playback (seeking does not count). */
+  var NEED=30,watched=0,last=null,vsl=document.getElementById('vsl'),lockEl=document.getElementById('qlock');
   var lbar=document.getElementById('qlockbar'),lt=document.getElementById('qlockt');
   var ok=false;try{ok=localStorage.getItem('ce_vsl_ok')==='1'}catch(e){}
   function unlock(){lockEl.hidden=true;try{localStorage.setItem('ce_vsl_ok','1')}catch(e){}var h=document.getElementById('vslhint');if(h){h.textContent='¡Listo! Ya puedes aplicar abajo.';}}
