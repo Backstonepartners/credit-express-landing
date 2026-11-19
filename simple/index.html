@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Programa Crédito Nuevo 45 de Credit Express: disputas personalizadas en todos los burós y avances cada semana. Agenda tu análisis gratis.">
+<title>Programa Crédito Nuevo 45 · Credit Express</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Credit Express USA">
+<meta property="og:title" content="Aplica para reparar tu crédito en 45 días">
+<meta property="og:description" content="Aplica y agenda tu análisis de crédito gratis">
+<meta property="og:image" content="https://creditexpress.erickconsultingcrd.com/vsl_portada.jpg">
+<meta property="og:url" content="https://creditexpress.erickconsultingcrd.com/simple/">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one calm column. Headline, video, button, 3 reasons, 3 testimonials, quiz + calendar. Black + gold, single dark look by design. */
+:root{
+  --bg:#0B0B0B; --surface:#151412; --ink:#F6F1E6; --muted:#A8A192; --line:#2A2620;
+  --gold:#D4AF37; --gold-hi:#F3D77A; --gold-lo:#A8842A; --on-gold:#111111;
+  --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(2rem,7vw,2.9rem);font-weight:800}
+h2{font-size:clamp(1.5rem,5vw,2rem);font-weight:800}
+p{margin:0}
+.gold{color:var(--gold)}
+.top .wrap{padding-block:18px;display:flex;justify-content:center}
+.logo{font-family:var(--display);font-weight:800;font-size:1.2rem}
+.hero .wrap{padding-block:18px 40px;display:grid;gap:18px;text-align:center;justify-items:center}
+.sub{color:var(--muted);font-size:1.08rem;max-width:44ch}
+.video{width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000}
+.video video{width:100%;height:100%;object-fit:cover;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:var(--on-gold);font-weight:800;font-size:1.08rem;text-decoration:none;padding:17px 30px;border-radius:999px;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--gold-hi)}
+.btn:focus-visible{outline:3px solid var(--gold-hi);outline-offset:3px}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.note{font-size:.88rem;color:var(--muted)}
+section .wrap{padding-block:40px;border-top:1px solid var(--line)}
+.why{display:grid;gap:22px}
+.why h2{text-align:center}
+.reasons{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.reasons li{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start}
+.reasons li::before{content:"";width:28px;height:28px;border-radius:50%;background:var(--gold) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6 12.5l4 4 8-9' fill='none' stroke='%23111' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/16px no-repeat}
+.reasons b{display:block;font-size:1.05rem}
+.reasons span{color:var(--muted);font-size:.97rem}
+.center{text-align:center;display:grid;gap:8px;justify-items:center;margin-bottom:24px}
+.center p{color:var(--muted)}
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.quote{position:relative;margin:0;border-radius:14px;overflow:hidden;background:var(--surface);aspect-ratio:9/16;max-width:100%}
+.quote video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.quote .tplay{position:absolute;inset:0;display:grid;place-items:center;background:transparent;border:0;cursor:pointer;padding:0}
+.quote .tplay span{width:52px;height:52px;border-radius:50%;background:var(--gold);display:grid;place-items:center}
+.quote .tplay span::after{content:"";border-left:16px solid var(--on-gold);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.quote.playing .tplay{display:none}
+.quiz{position:relative;padding:24px;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.qlock{position:absolute;inset:0;z-index:5;border-radius:18px;background:rgba(11,11,11,.92);display:grid;place-items:center;text-align:center;padding:24px}
+.qlock[hidden]{display:none}
+.qlock-in{display:grid;gap:12px;justify-items:center;max-width:360px}
+.qlock h3{font-size:1.3rem}
+.qlock p{color:var(--muted);font-size:.97rem}
+.qlock-bar{width:100%;height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.qlock-bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .4s linear}
+.qlock-t{color:var(--gold);font-weight:700;font-size:.9rem;font-variant-numeric:tabular-nums}
+.vsl-hint{font-size:.88rem;color:var(--gold);font-weight:600}
+.vsl-hint[hidden]{display:none}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:26px}
+.qcount{margin-left:auto;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.qback{background:none;border:0;color:var(--muted);font:inherit;font-size:.92rem;cursor:pointer;padding:4px 0}
+.qbar{height:5px;border-radius:99px;background:var(--line);margin:10px 0 22px;overflow:hidden}
+.qbar i{display:block;height:100%;width:20%;background:var(--gold);transition:width .3s ease}
+.qstep{display:none}
+.qstep.active{display:grid;gap:14px}
+.qstep h3{font-size:clamp(1.3rem,4.5vw,1.6rem)}
+.qhint{color:var(--muted);font-size:.97rem}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;font:inherit;font-size:1.02rem;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:15px 16px;cursor:pointer}
+.opt::before{content:"";flex:0 0 20px;height:20px;border-radius:50%;border:2px solid var(--gold-lo)}
+[data-multi] .opt::before{border-radius:6px}
+.opt:hover,.opt.sel{border-color:var(--gold)}
+.opt.sel::before{background:var(--gold);border-color:var(--gold);box-shadow:inset 0 0 0 3px var(--bg)}
+.opt:focus-visible{outline:3px solid var(--gold-hi);outline-offset:2px}
+.qnext,.qsubmit,.qwa{justify-self:stretch}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fgrid .full{grid-column:1/-1}
+.fgrid label{display:grid;gap:6px;font-size:.88rem;font-weight:600;color:var(--muted)}
+.fgrid input{font:inherit;font-size:1.02rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;width:100%}
+.fgrid input:focus{outline:none;border-color:var(--gold)}
+.fgrid input.bad{border-color:#E5826B}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;line-height:1.45;color:var(--muted);cursor:pointer}
+.consent input{flex:0 0 18px;width:18px;height:18px;margin-top:1px;accent-color:var(--gold)}
+.qerr{color:#E5826B;font-size:.9rem}
+.qerr:empty{display:none}
+.booking{border-radius:12px;overflow:hidden;min-height:600px}
+.booking iframe{display:block;width:100%;min-height:600px;border:0}
+footer .wrap{padding-block:28px;display:grid;gap:8px;font-size:.76rem;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
+@media (max-width:560px){.fgrid{grid-template-columns:1fr}.quiz{padding:20px 16px}.quotes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:58%;overflow-x:auto;scroll-snap-type:x mandatory}.quote{scroll-snap-align:start}}
+@media (prefers-reduced-motion:reduce){.qbar i,.qlock-bar i{transition:none}}
+</style>
+<!-- Meta Pixel: Credit Express USA LLC Event Data -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1116895847917975');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1116895847917975&ev=PageView&noscript=1"></noscript>
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="logo">Credit <span class="gold">Express</span></div></div></header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Repara tu crédito en <span class="gold">45 días</span>, con garantía.</h1>
+      <p class="sub">Mira el video y agenda tu análisis gratis con Erick.</p>
+      <div class="video"><video id="vsl" controls playsinline preload="metadata" poster="../vsl_portada.jpg" src="../vsl.mp4">Tu navegador no puede reproducir este video.</video></div>
+      <p class="vsl-hint" id="vslhint" hidden></p>
+      <a class="btn" href="#agenda">Ver si califico</a>
+      <p class="note">Gratis · 15 minutos · En español · Solo 10 cupos este mes</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap why">
+      <h2>Por qué la gente confía en nosotros</h2>
+      <ul class="reasons">
+        <li><div><b>Trabajamos tus 3 burós</b><span>Disputamos lo que esté mal reportado y te damos avances cada 7 días.</span></div></li>
+        <li><div><b>Garantía por escrito</b><span>Erick te explica los términos en la llamada, antes de que firmes nada.</span></div></li>
+        <li><div><b>Plan de pagos desde $150</b><span>No pagas todo de una vez. Erick te da el monto exacto en la llamada.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center"><h2>Lo que dicen nuestros clientes</h2></div>
+      <div class="quotes">
+        <figure class="quote"><video src="../testimonio1.mp4" poster="../testimonio1.jpg" preload="none" playsinline></video><button class="tplay" type="button" aria-label="Reproducir testimonio 1"><span></span></button></figure>
+        <figure class="quote"><video src="../testimonio2.mp4" poster="../testimonio2.jpg" preload="none" playsinline></video><button class="tplay" type="button" aria-label="Reproducir testimonio 2"><span></span></button></figure>
+        <figure class="quote"><video src="../testimonio3.mp4" poster="../testimonio3.jpg" preload="none" playsinline></video><button class="tplay" type="button" aria-label="Reproducir testimonio 3"><span></span></button></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <div class="wrap">
+      <div class="center">
+        <h2>Agenda tu análisis <span class="gold">gratis</span></h2>
+        <p>4 preguntas rápidas y escoges la hora de tu llamada.</p>
+      </div>
+      <div class="quiz" id="quiz">
+        <div class="qlock" id="qlock">
+          <div class="qlock-in">
+            <div class="qlock-ico" aria-hidden="true">&#9654;</div>
+            <h3>Mira al menos 30 segundos del video para aplicar</h3>
+            <p>Ahí te explicamos cómo funciona el proceso. Así llegas a la llamada sabiendo lo que hacemos.</p>
+            <div class="qlock-bar" aria-hidden="true"><i id="qlockbar"></i></div>
+            <span class="qlock-t" id="qlockt">Te faltan 30 segundos</span>
+            <button type="button" class="btn" id="qlockgo">Ver el video</button>
+          </div>
+        </div>
+        <div class="qhead">
+          <button type="button" class="qback" id="qback" aria-label="Pregunta anterior" hidden>&#8592; Atrás</button>
+          <span class="qcount" id="qcount">Pregunta 1 de 5</span>
+        </div>
+        <div class="qbar" aria-hidden="true"><i id="qbar"></i></div>
+
+        <div class="qstep active" data-step="0" data-key="para_que">
+          <h3>¿Para qué quieres arreglar tu crédito?</h3>
+          <div class="opts" role="radiogroup">
+            <button type="button" class="opt">Comprar casa</button>
+            <button type="button" class="opt">Sacar tarjetas de crédito</button>
+            <button type="button" class="opt">Comprar carro</button>
+            <button type="button" class="opt">Conseguir un préstamo</button>
+            <button type="button" class="opt">Abrir o crecer mi negocio</button>
+            <button type="button" class="opt">Salir de deudas</button>
+            <button type="button" class="opt">Otro</button>
+          </div>
+        </div>
+
+        <div class="qstep" data-step="1" data-key="que_tiene" data-multi>
+          <h3>¿Qué tienes en tu reporte de crédito?</h3>
+          <p class="qhint">Marca todas las que apliquen.</p>
+          <div class="opts" role="group">
+            <button type="button" class="opt">Bancarrota</button>
+            <button type="button" class="opt">Colecciones o muchas deudas</button>
+            <button type="button" class="opt">Muchos inquiries (consultas de crédito)</button>
+            <button type="button" class="opt">Pagos atrasados</button>
+            <button type="button" class="opt">Repossession (me quitaron el carro)</button>
+            <button type="button" class="opt">Préstamos estudiantiles</button>
+            <button type="button" class="opt">No tengo historial de crédito</button>
+            <button type="button" class="opt">No sé, quiero que lo revisen</button>
+          </div>
+          <button type="button" class="btn qnext" disabled>Siguiente</button>
+        </div>
+
+        <div class="qstep" data-step="2" data-key="cuando">
+          <h3>¿Cuándo quieres empezar a trabajar tu crédito?</h3>
+          <div class="opts" role="radiogroup">
+            <button type="button" class="opt">Ya mismo</button>
+            <button type="button" class="opt">En los próximos 30 días</button>
+            <button type="button" class="opt">En 1 a 3 meses</button>
+            <button type="button" class="opt">Solo estoy averiguando</button>
+          </div>
+        </div>
+
+        <div class="qstep" data-step="3" data-key="compromiso">
+          <h3>Trabajamos solo con personas comprometidas.</h3>
+          <p class="qhint">¿Te comprometes a conectarte a la llamada de 15 minutos y escuchar la propuesta?</p>
+          <div class="opts" role="radiogroup">
+            <button type="button" class="opt">Sí, me comprometo a conectarme y escuchar la propuesta</button>
+            <button type="button" class="opt">No por ahora</button>
+          </div>
+        </div>
+
+        <div class="qstep" data-step="4" data-key="no">
+          <h3>Por ahora no calificas para nuestro programa.</h3>
+          <p class="qhint">Trabajamos con cupos limitados cada mes y solo con personas listas para empezar. Si quieres más información, escríbenos por WhatsApp.</p>
+          <a class="btn qwa" id="qwa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+
+        <form class="qstep" data-step="5" id="qform" novalidate>
+          <h3>Último paso: ¿a dónde te contactamos?</h3>
+          <p class="qhint">Te enviamos la confirmación de tu cita por texto y email.</p>
+          <div class="fgrid">
+            <label>Nombre<input name="first_name" autocomplete="given-name" required></label>
+            <label>Apellido<input name="last_name" autocomplete="family-name" required></label>
+            <label class="full">Teléfono<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(305) 555-1234" required></label>
+            <label class="full">Email<input name="email" type="email" autocomplete="email" placeholder="tu@email.com" required></label>
+          </div>
+          <label class="consent"><input type="checkbox" name="sms_consent" required> <span>Acepto recibir mensajes de texto, llamadas y correos de Credit Express USA LLC sobre mi solicitud y mi cita. La frecuencia varía. Pueden aplicar tarifas de mensajes y datos. Responde STOP para cancelar o HELP para ayuda.</span></label>
+          <p class="qerr" id="qerr" role="alert"></p>
+          <button type="submit" class="btn qsubmit">Ver horarios disponibles</button>
+        </form>
+
+        <div class="qstep" data-step="6">
+          <h3 id="qhello">¡Listo! Escoge el día y la hora de tu llamada</h3>
+          <p class="qhint">Toma menos de 30 segundos. Tus datos ya están llenos.</p>
+          <div class="booking" id="booking"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Credit Express USA LLC · Miami, Florida</p>
+    <p>Plan de pagos desde $150 según tu caso.</p>
+    <p>Los resultados varían según cada caso. Credit Express no garantiza un aumento específico de puntaje ni la eliminación de información correcta y verificable. Tienes derecho a cancelar tu contrato dentro de los 3 días hábiles siguientes a la firma.</p>
+  </div>
+</footer>
+
+
+
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.quote'));
+  var all=[document.getElementById('vsl')].concat(cards.map(function(c){return c.querySelector('video')})).filter(Boolean);
+  all.forEach(function(v){v.addEventListener('play',function(){all.forEach(function(o){if(o!==v&&!o.paused)o.pause()})})});
+  cards.forEach(function(c){
+    var v=c.querySelector('video'),b=c.querySelector('.tplay');
+    b.addEventListener('click',function(){v.controls=true;c.classList.add('playing');v.play()});
+    v.addEventListener('ended',function(){c.classList.remove('playing');v.controls=false;v.load()});
+  });
+})();
+</script>
+<script>
+(function(){
+  if(!window.fbq)return;
+  var v=document.getElementById('vsl'),sent=false;
+  if(v)v.addEventListener('play',function(){if(!sent){sent=true;fbq('track','ViewContent',{content_name:'VSL'})}});
+  document.querySelectorAll('a[href="#agenda"]').forEach(function(a){a.addEventListener('click',function(){fbq('trackCustom','ClickAgendar')})});
+})();
+</script>
+<script>
+/* Quiz: one question per screen. Answers go to GHL (workflow "CE 0 - Formulario landing"), then the calendar opens prefilled. */
+(function(){
+  var HOOK='https://services.leadconnectorhq.com/hooks/pxRRmy6XQVrZAWSk5CEO/webhook-trigger/87473e1d-ebd3-4f32-8f5c-e03b86e8d50d';
+  var CAL='https://api.leadconnectorhq.com/widget/booking/S6nfWtkto1r1Slsujyk1';
+  var quiz=document.getElementById('quiz'); if(!quiz)return;
+  var steps=[].slice.call(quiz.querySelectorAll('.qstep'));
+  var bar=document.getElementById('qbar'),count=document.getElementById('qcount'),back=document.getElementById('qback');
+  var data={},hist=[],cur=0,started=false;
+  function fb(){if(window.fbq)fbq.apply(null,arguments)}
+  function show(n,push){
+    if(push!==false)hist.push(cur);
+    cur=n;
+    steps.forEach(function(s){s.classList.toggle('active',+s.dataset.step===n)});
+    var q={0:1,1:2,2:3,3:4,4:4,5:5,6:5}[n];
+    bar.style.width=(n===6?100:q*20)+'%';
+    count.textContent=n===6?'Agenda tu hora':(n===5?'Último paso':'Pregunta '+q+' de 5');
+    back.hidden=(n===0||n===4||n===6);
+    if(n===4){bar.style.width='100%';count.textContent='Resultado'}
+    var f=steps[n].querySelector('.opt,input');
+    if(started&&f){quiz.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){f.focus({preventScroll:true})},360)}
+  }
+  back.addEventListener('click',function(){if(hist.length)show(hist.pop(),false)});
+  steps.forEach(function(s){
+    var key=s.dataset.key,multi=s.hasAttribute('data-multi'),next=s.querySelector('.qnext');
+    s.querySelectorAll('.opt').forEach(function(o){
+      o.setAttribute('aria-pressed','false');
+      o.addEventListener('click',function(){
+        if(!started){started=true;fb('trackCustom','QuizStart')}
+        if(multi){
+          o.classList.toggle('sel');o.setAttribute('aria-pressed',o.classList.contains('sel'));
+          var v=[].slice.call(s.querySelectorAll('.opt.sel')).map(function(x){return x.textContent.trim()});
+          data[key]=v.join(', ');next.disabled=!v.length;return;
+        }
+        s.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');x.setAttribute('aria-pressed','false')});
+        o.classList.add('sel');o.setAttribute('aria-pressed','true');
+        data[key]=o.textContent.trim();
+        var n=+s.dataset.step;
+        var nx=n+1;
+        if(n===2&&data.cuando==='Solo estoy averiguando')nx=4;
+        if(n===3)nx=data.compromiso==='No por ahora'?4:5;
+        setTimeout(function(){show(nx)},220);
+      });
+    });
+    if(next)next.addEventListener('click',function(){show(+s.dataset.step+1)});
+  });
+  var WA='19544662006';/* número WhatsApp, solo dígitos con código país, ej. 13055551234 */
+  var wa=document.getElementById('qwa');
+  wa.href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, quiero más información sobre el programa de crédito de Credit Express.');
+
+  function ck(n){var m=document.cookie.match('(?:^|; )'+n+'=([^;]*)');return m?decodeURIComponent(m[1]):''}
+  function qp(n){try{return new URLSearchParams(location.search).get(n)||''}catch(e){return ''}}
+  function fbc(){var c=ck('_fbc');if(c)return c;var id=qp('fbclid');return id?'fb.1.'+Date.now()+'.'+id:''}
+  function phone(v){var d=v.replace(/\D/g,'');if(d.length===10)return '+1'+d;if(d.length===11&&d[0]==='1')return '+'+d;return v.trim().charAt(0)==='+'&&d.length>10?'+'+d:''}
+  var form=document.getElementById('qform'),err=document.getElementById('qerr');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();err.textContent='';
+    var f=form.elements,bad=[];
+    var p=phone(f.phone.value),em=f.email.value.trim();
+    [['first_name',f.first_name.value.trim()],['last_name',f.last_name.value.trim()],['phone',p],['email',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)?em:'']].forEach(function(x){f[x[0]].classList.toggle('bad',!x[1]);if(!x[1])bad.push(x[0])});
+    if(bad.length){err.textContent={first_name:'Escribe tu nombre.',last_name:'Escribe tu apellido.',phone:'Revisa tu número de teléfono (10 dígitos).',email:'Revisa tu email.'}[bad[0]];f[bad[0]].focus();return}
+    if(!f.sms_consent.checked){err.textContent='Marca la casilla para poder enviarte la confirmación de tu cita.';return}
+    var btn=form.querySelector('.qsubmit');btn.disabled=true;btn.textContent='Un momento…';
+    var payload={first_name:f.first_name.value.trim(),last_name:f.last_name.value.trim(),phone:p,email:em,para_que:data.para_que||'',que_tiene:data.que_tiene||'',cuando:data.cuando||'',compromiso:data.compromiso||'',sms_consent:'Sí',source:'landing-quiz',page:location.href,fbp:ck('_fbp'),fbc:fbc(),fbclid:qp('fbclid')||(ck('_fbc').split('.')[3]||''),user_agent:navigator.userAgent,utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content')};
+    var done=false;function go(){if(done)return;done=true;openCal(payload)}
+    try{fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).then(go,go)}catch(x){go()}
+    setTimeout(go,2500);
+    /* No es Lead: el Lead real lo manda GHL por CAPI cuando la persona agenda la llamada (CE 2). */
+    fb('trackCustom','QuizCompleto',{content_name:'Quiz landing'});
+  });
+  function openCal(p){
+    document.getElementById('qhello').textContent='¡Listo, '+p.first_name+'! Escoge el día y la hora de tu llamada';
+    var q='?first_name='+encodeURIComponent(p.first_name)+'&last_name='+encodeURIComponent(p.last_name)+'&email='+encodeURIComponent(p.email)+'&phone='+encodeURIComponent(p.phone);
+    var box=document.getElementById('booking');
+    box.innerHTML='<iframe src="'+CAL+q+'" id="S6nfWtkto1r1Slsujyk1_1792697314436" scrolling="no" title="Agenda tu análisis gratis" style="width:100%;border:none;overflow:hidden"></iframe>';
+    var s=document.createElement('script');s.src='https://link.msgsndr.com/js/form_embed.js';document.body.appendChild(s);
+    show(6);
+  }
+  show(0,false);
+  /* Gate: quiz unlocks after 30s of real VSL playback (seeking does not count). */
+  var NEED=30,watched=0,last=null,vsl=document.getElementById('vsl'),lockEl=document.getElementById('qlock');
+  var lbar=document.getElementById('qlockbar'),lt=document.getElementById('qlockt');
+  var ok=false;try{ok=localStorage.getItem('ce_vsl_ok')==='1'}catch(e){}
+  function unlock(){lockEl.hidden=true;try{localStorage.setItem('ce_vsl_ok','1')}catch(e){}var h=document.getElementById('vslhint');if(h){h.textContent='¡Listo! Ya puedes aplicar abajo.';}}
+  function paint(){var p=Math.min(1,watched/NEED);lbar.style.width=(p*100)+'%';var r=Math.max(0,Math.ceil(NEED-watched));lt.textContent=r?('Te faltan '+r+' segundos'):'¡Desbloqueado!';var h=document.getElementById('vslhint');if(h&&r){h.hidden=false;h.textContent='Mira '+r+' segundos más para desbloquear tu aplicación';}}
+  if(ok||!vsl){lockEl.hidden=true}else{
+    vsl.addEventListener('timeupdate',function(){var t=vsl.currentTime;if(last!==null&&!vsl.paused&&!vsl.seeking){var d=t-last;if(d>0&&d<1.5)watched+=d;}last=t;paint();if(watched>=NEED){unlock();}});
+    vsl.addEventListener('seeking',function(){last=null});
+    document.getElementById('qlockgo').addEventListener('click',function(){var v=document.querySelector('.video')||vsl;v.scrollIntoView({behavior:'smooth',block:'center'});try{vsl.play()}catch(e){}});
+    paint();
+  }
+})();
+</script>
+</body>
+</html>
