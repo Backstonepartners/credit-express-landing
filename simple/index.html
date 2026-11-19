@@ -166,11 +166,21 @@ fbq('init','1116895847917975');fbq('track','PageView');
         </div>
         <div class="qhead">
           <button type="button" class="qback" id="qback" aria-label="Pregunta anterior" hidden>&#8592; Atrás</button>
-          <span class="qcount" id="qcount">Pregunta 1 de 5</span>
+          <span class="qcount" id="qcount">Pregunta 1 de 6</span>
         </div>
         <div class="qbar" aria-hidden="true"><i id="qbar"></i></div>
 
-        <div class="qstep active" data-step="0" data-key="para_que">
+        <div class="qstep active" data-step="0" data-key="presupuesto">
+          <h3>Para empezar el programa necesitas $150.</h3>
+          <p class="qhint">Es el pago para empezar a trabajar tu crédito. ¿Los tienes disponibles?</p>
+          <div class="opts" role="radiogroup">
+            <button type="button" class="opt">Sí, tengo los $150 para empezar</button>
+            <button type="button" class="opt">Sí, pero necesito unos días</button>
+            <button type="button" class="opt">No tengo ese dinero ahora</button>
+          </div>
+        </div>
+
+        <div class="qstep" data-step="1" data-key="para_que">
           <h3>¿Para qué quieres arreglar tu crédito?</h3>
           <div class="opts" role="radiogroup">
             <button type="button" class="opt">Comprar casa</button>
@@ -183,7 +193,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
           </div>
         </div>
 
-        <div class="qstep" data-step="1" data-key="que_tiene" data-multi>
+        <div class="qstep" data-step="2" data-key="que_tiene" data-multi>
           <h3>¿Qué tienes en tu reporte de crédito?</h3>
           <p class="qhint">Marca todas las que apliquen.</p>
           <div class="opts" role="group">
@@ -199,7 +209,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
           <button type="button" class="btn qnext" disabled>Siguiente</button>
         </div>
 
-        <div class="qstep" data-step="2" data-key="cuando">
+        <div class="qstep" data-step="3" data-key="cuando">
           <h3>¿Cuándo quieres empezar a trabajar tu crédito?</h3>
           <div class="opts" role="radiogroup">
             <button type="button" class="opt">Ya mismo</button>
@@ -209,7 +219,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
           </div>
         </div>
 
-        <div class="qstep" data-step="3" data-key="compromiso">
+        <div class="qstep" data-step="4" data-key="compromiso">
           <h3>Trabajamos solo con personas comprometidas.</h3>
           <p class="qhint">¿Te comprometes a conectarte a la llamada de 15 minutos y escuchar la propuesta?</p>
           <div class="opts" role="radiogroup">
@@ -218,13 +228,13 @@ fbq('init','1116895847917975');fbq('track','PageView');
           </div>
         </div>
 
-        <div class="qstep" data-step="4" data-key="no">
+        <div class="qstep" data-step="5" data-key="no">
           <h3>Por ahora no calificas para nuestro programa.</h3>
           <p class="qhint">Trabajamos con cupos limitados cada mes y solo con personas listas para empezar. Si quieres más información, escríbenos por WhatsApp.</p>
           <a class="btn qwa" id="qwa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
         </div>
 
-        <form class="qstep" data-step="5" id="qform" novalidate>
+        <form class="qstep" data-step="6" id="qform" novalidate>
           <h3>Último paso: ¿a dónde te contactamos?</h3>
           <p class="qhint">Te enviamos la confirmación de tu cita por texto y email.</p>
           <div class="fgrid">
@@ -238,7 +248,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
           <button type="submit" class="btn qsubmit">Ver horarios disponibles</button>
         </form>
 
-        <div class="qstep" data-step="6">
+        <div class="qstep" data-step="7">
           <h3 id="qhello">¡Listo! Escoge el día y la hora de tu llamada</h3>
           <p class="qhint">Toma menos de 30 segundos. Tus datos ya están llenos.</p>
           <div class="booking" id="booking"></div>
@@ -292,11 +302,11 @@ fbq('init','1116895847917975');fbq('track','PageView');
     if(push!==false)hist.push(cur);
     cur=n;
     steps.forEach(function(s){s.classList.toggle('active',+s.dataset.step===n)});
-    var q={0:1,1:2,2:3,3:4,4:4,5:5,6:5}[n];
-    bar.style.width=(n===6?100:q*20)+'%';
-    count.textContent=n===6?'Agenda tu hora':(n===5?'Último paso':'Pregunta '+q+' de 5');
-    back.hidden=(n===0||n===4||n===6);
-    if(n===4){bar.style.width='100%';count.textContent='Resultado'}
+    var q={0:1,1:2,2:3,3:4,4:5,5:5,6:6,7:6}[n];
+    bar.style.width=(n===7?100:Math.round(q*100/6))+'%';
+    count.textContent=n===7?'Agenda tu hora':(n===6?'Último paso':'Pregunta '+q+' de 6');
+    back.hidden=(n===0||n===5||n===7);
+    if(n===5){bar.style.width='100%';count.textContent='Resultado'}
     var f=steps[n].querySelector('.opt,input');
     if(started&&f){quiz.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){f.focus({preventScroll:true})},360)}
   }
@@ -317,8 +327,9 @@ fbq('init','1116895847917975');fbq('track','PageView');
         data[key]=o.textContent.trim();
         var n=+s.dataset.step;
         var nx=n+1;
-        if(n===2&&data.cuando==='Solo estoy averiguando')nx=4;
-        if(n===3)nx=data.compromiso==='No por ahora'?4:5;
+        if(n===0&&data.presupuesto==='No tengo ese dinero ahora')nx=5;
+        if(n===3&&data.cuando==='Solo estoy averiguando')nx=5;
+        if(n===4)nx=data.compromiso==='No por ahora'?5:6;
         setTimeout(function(){show(nx)},220);
       });
     });
@@ -341,7 +352,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
     if(bad.length){err.textContent={first_name:'Escribe tu nombre.',last_name:'Escribe tu apellido.',phone:'Revisa tu número de teléfono (10 dígitos).',email:'Revisa tu email.'}[bad[0]];f[bad[0]].focus();return}
     if(!f.sms_consent.checked){err.textContent='Marca la casilla para poder enviarte la confirmación de tu cita.';return}
     var btn=form.querySelector('.qsubmit');btn.disabled=true;btn.textContent='Un momento…';
-    var payload={first_name:f.first_name.value.trim(),last_name:f.last_name.value.trim(),phone:p,email:em,para_que:data.para_que||'',que_tiene:data.que_tiene||'',cuando:data.cuando||'',compromiso:data.compromiso||'',sms_consent:'Sí',source:'landing-quiz',page:location.href,fbp:ck('_fbp'),fbc:fbc(),fbclid:qp('fbclid')||(ck('_fbc').split('.')[3]||''),user_agent:navigator.userAgent,utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content')};
+    var payload={first_name:f.first_name.value.trim(),last_name:f.last_name.value.trim(),phone:p,email:em,presupuesto:data.presupuesto||'',para_que:data.para_que||'',que_tiene:data.que_tiene||'',cuando:data.cuando||'',compromiso:data.compromiso||'',sms_consent:'Sí',source:'landing-quiz',page:location.href,fbp:ck('_fbp'),fbc:fbc(),fbclid:qp('fbclid')||(ck('_fbc').split('.')[3]||''),user_agent:navigator.userAgent,utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content')};
     var done=false;function go(){if(done)return;done=true;openCal(payload)}
     try{fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).then(go,go)}catch(x){go()}
     setTimeout(go,2500);
@@ -354,7 +365,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
     var box=document.getElementById('booking');
     box.innerHTML='<iframe src="'+CAL+q+'" id="S6nfWtkto1r1Slsujyk1_1792697314436" scrolling="no" title="Agenda tu análisis gratis" style="width:100%;border:none;overflow:hidden"></iframe>';
     var s=document.createElement('script');s.src='https://link.msgsndr.com/js/form_embed.js';document.body.appendChild(s);
-    show(6);
+    show(7);
   }
   show(0,false);
   /* Gate: quiz unlocks after 30s of real VSL playback (seeking does not count). */
