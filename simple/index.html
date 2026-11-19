@@ -171,12 +171,10 @@ fbq('init','1116895847917975');fbq('track','PageView');
         <div class="qbar" aria-hidden="true"><i id="qbar"></i></div>
 
         <div class="qstep active" data-step="0" data-key="presupuesto">
-          <h3>Para empezar el programa necesitas $150.</h3>
-          <p class="qhint">Es el pago para empezar a trabajar tu crédito. ¿Los tienes disponibles?</p>
+          <h3>¿Estás de acuerdo en que este programa necesita como mínimo $150 para comenzar a trabajar en tu crédito?</h3>
           <div class="opts" role="radiogroup">
-            <button type="button" class="opt">Sí, tengo los $150 para empezar</button>
-            <button type="button" class="opt">Sí, pero necesito unos días</button>
-            <button type="button" class="opt">No tengo ese dinero ahora</button>
+            <button type="button" class="opt">Sí, estoy de acuerdo</button>
+            <button type="button" class="opt">No estoy de acuerdo</button>
           </div>
         </div>
 
@@ -327,7 +325,7 @@ fbq('init','1116895847917975');fbq('track','PageView');
         data[key]=o.textContent.trim();
         var n=+s.dataset.step;
         var nx=n+1;
-        if(n===0&&data.presupuesto==='No tengo ese dinero ahora')nx=5;
+        if(n===0&&data.presupuesto==='No estoy de acuerdo')nx=5;
         if(n===3&&data.cuando==='Solo estoy averiguando')nx=5;
         if(n===4)nx=data.compromiso==='No por ahora'?5:6;
         setTimeout(function(){show(nx)},220);
